@@ -3,7 +3,7 @@
 Halo semuanya! ini adalah proyek Bookshelf API yaitu proyek mengenai pembuatan web server beserta API yang terkait dengan basic operasi dalam CRUD (Create, Read, Update, Delete)
 dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
 
-#Kriteria 1 : API dapat menyimpan buku
+## Kriteria 1 : API dapat menyimpan buku
   1. API yang dibuat harus dapat menyimpan buku melalui route
       Method : POST
       URL : /books
@@ -74,7 +74,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
                   }
               }
    
-#Kriteria 2 : API dapat menampilkan seluruh buku
+## Kriteria 2 : API dapat menampilkan seluruh buku
    1. API yang dibuat harus dapat menampilkan seluruh buku yang disimpan melalui route.
       Method : GET
       URL: /books
@@ -82,7 +82,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
    2. Server harus mengembalikan respons dengan: 
       Status Code : 200
       Response Body:    
-              {
+          {
                   "status": "success",
                   "data": {
                       "books": [
@@ -113,7 +113,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
             }
         }    
       
- #Kriteria 3 : API dapat menampilkan detail buku      
+ ## Kriteria 3 : API dapat menampilkan detail buku      
     1. API yang Anda buat harus dapat menampilkan seluruh buku yang disimpan melalui route:
         Method : GET
         URL: /books/{bookId}
@@ -151,7 +151,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
               }
           }    
           
- #Kriteria 4 : API dapat mengubah data buku
+ ## Kriteria 4 : API dapat mengubah data buku
     1. API yang dibuat harus dapat mengubah data buku berdasarkan "id" melalui route: 
         Method : PUT
         URL : /books/{bookId}
@@ -204,7 +204,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
                     "message": "Buku berhasil diperbarui"
                 }
                 
-  #Kriteria 5 : API dapat menghapus buku
+ ## Kriteria 5 : API dapat menghapus buku
     1. API yang Anda buat harus dapat menghapus buku berdasarkan id melalui route berikut:
 
         Method : DELETE
@@ -229,7 +229,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
                     "message": "Buku berhasil dihapus"
                 }
               
-  #Kriteria 6 :  melalui fitur query parameter pada route GET /books 
+ ## Kriteria 6 :  melalui fitur query parameter pada route GET /books 
     1. melalui fitur query parameters ini, maka pada route GET /books dapat menampilkan seluruh isi buku dengan ketentuan sebagai berikut.
         ?name : Tampilkan seluruh buku yang mengandung nama berdasarkan nilai yang diberikan pada query ini. Contoh /books?name=”dicoding”, 
                 maka akan menampilkan daftar buku yang mengandung nama “dicoding” secara non-case sensitive  (tidak peduli besar dan kecil 
