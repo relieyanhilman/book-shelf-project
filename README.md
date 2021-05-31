@@ -8,19 +8,19 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
       Method : POST
       URL : /books
       Body Request:
-             {
-            "name": string,
-            "year": number,
-            "author": string,
-            "summary": string,
-            "publisher": string,
-            "pageCount": number,
-            "readPage": number,
-            "reading": boolean
-            }
-            
+                     
+              {
+                  "name": string,
+                  "year": number,
+                  "author": string,
+                  "summary": string,
+                  "publisher": string,
+                  "pageCount": number,
+                  "readPage": number,
+                  "reading": boolean
+              }            
    2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini:
-           {
+        
             "id": "Qbax5Oy7L8WKf74l",
             "name": "Buku A",
             "year": 2010,
@@ -33,46 +33,52 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
             "reading": false,
             "insertedAt": "2021-03-04T09:11:44.598Z",
             "updatedAt": "2021-03-04T09:11:44.598Z"
-            }
+        
      Properti "id", "finished" dan "updatedAt" didapatkan di sisi server. Berikut penjelasannya:
-     - id : nilai id haruslah unik. Untuk membuat nilai unik, Anda bisa memanfaatkan nanoid.
+     - id : nilai id haruslah unik.
      - finished : merupakan properti boolean yang menjelaskan apakah buku telah selesai dibaca atau belum. Nilai finished didapatkan dari observasi pageCount === readPage.
-     - insertedAt : merupakan properti yang menampung tanggal dimasukkannya buku. Anda bisa gunakan new Date().toISOString() untuk menghasilkan nilainya.
+     - insertedAt : merupakan properti yang menampung tanggal dimasukkannya buku.
      - updatedAt : merupakan properti yang menampung tanggal diperbarui buku. Ketika buku baru dimasukkan, berikan nilai properti ini sama dengan insertedAt.
      
    3. Server harus merespons gagal bila: 
      a. Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 400
-        Response Body: 
+        Response Body:
+        
                  {
                 "status": "fail",
                 "message": "Gagal menambahkan buku. Mohon isi nama buku"
                  }
+                 
      b. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 400
         Response Body:
+        
                 {
                 "status": "fail",
                 "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
                 }
+                
      c. Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 500
         Response Body:
-                {
-                "status": "error",
-                "message": "Buku gagal ditambahkan"
-                }
+        
+          {
+              "status": "error",
+              "message": "Buku gagal ditambahkan"
+          }
                 
    4. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: 
        Status Code : 201
        Response Body:
-              {
-                  "status": "success",
-                  "message": "Buku berhasil ditambahkan",
-                  "data": {
-                      "bookId": "1L7ZtDUFeGs7VlEt"
-                  }
-              }
+       
+            {
+                "status": "success",
+                "message": "Buku berhasil ditambahkan",
+                "data": {
+                    "bookId": "1L7ZtDUFeGs7VlEt"
+                }
+          }
    
 ## Kriteria 2 : API dapat menampilkan seluruh buku
    1. API yang dibuat harus dapat menampilkan seluruh buku yang disimpan melalui route.
@@ -81,7 +87,8 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
       
    2. Server harus mengembalikan respons dengan: 
       Status Code : 200
-      Response Body:    
+      Response Body:   
+      
           {
                   "status": "success",
                   "data": {
@@ -103,7 +110,7 @@ dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
                           }
                       ]
                   }
-              }      
+              } 
       
     3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.
         {
