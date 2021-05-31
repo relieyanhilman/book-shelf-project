@@ -3,8 +3,8 @@
 Halo semuanya! ini adalah proyek Bookshelf API yaitu proyek mengenai pembuatan web server beserta API yang terkait dengan basic operasi dalam CRUD (Create, Read, Update, Delete)
 dari suatu rak buku. Beberapa kriteria dari proyek adalah sebagai berikut
 
-Kriteria 1 : API dapat menyimpan buku
-  # API yang dibuat harus dapat menyimpan buku melalui route
+##Kriteria 1 : API dapat menyimpan buku
+  1. API yang dibuat harus dapat menyimpan buku melalui route
       Method : POST
       URL : /books
       Body Request:
@@ -19,7 +19,7 @@ Kriteria 1 : API dapat menyimpan buku
             "reading": boolean
             }
             
-   # Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini:
+   2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini:
            {
             "id": "Qbax5Oy7L8WKf74l",
             "name": "Buku A",
@@ -40,22 +40,22 @@ Kriteria 1 : API dapat menyimpan buku
      - insertedAt : merupakan properti yang menampung tanggal dimasukkannya buku. Anda bisa gunakan new Date().toISOString() untuk menghasilkan nilainya.
      - updatedAt : merupakan properti yang menampung tanggal diperbarui buku. Ketika buku baru dimasukkan, berikan nilai properti ini sama dengan insertedAt.
      
-   # Server harus merespons gagal bila: 
-     1. Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
+   3. Server harus merespons gagal bila: 
+     a. Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 400
         Response Body: 
                  {
                 "status": "fail",
                 "message": "Gagal menambahkan buku. Mohon isi nama buku"
                  }
-     2. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
+     b. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 400
         Response Body:
                 {
                 "status": "fail",
                 "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
                 }
-     3. Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan:
+     c. Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan:
         Status Code : 500
         Response Body:
                 {
@@ -63,23 +63,23 @@ Kriteria 1 : API dapat menyimpan buku
                 "message": "Buku gagal ditambahkan"
                 }
                 
-   # Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: 
-     Status Code : 201
-     Response Body:
-            {
-                "status": "success",
-                "message": "Buku berhasil ditambahkan",
-                "data": {
-                    "bookId": "1L7ZtDUFeGs7VlEt"
-                }
-            }
+   4. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: 
+       Status Code : 201
+       Response Body:
+              {
+                  "status": "success",
+                  "message": "Buku berhasil ditambahkan",
+                  "data": {
+                      "bookId": "1L7ZtDUFeGs7VlEt"
+                  }
+              }
    
-Kriteria 2 : API dapat menampilkan seluruh buku
-   # API yang dibuat harus dapat menampilkan seluruh buku yang disimpan melalui route.
+##Kriteria 2 : API dapat menampilkan seluruh buku
+   1. API yang dibuat harus dapat menampilkan seluruh buku yang disimpan melalui route.
       Method : GET
       URL: /books
       
-   # Server harus mengembalikan respons dengan: 
+   2. Server harus mengembalikan respons dengan: 
       Status Code : 200
       Response Body:    
               {
@@ -105,7 +105,7 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                   }
               }      
       
-    # Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.
+    3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.
         {
             "status": "success",
             "data": {
@@ -113,12 +113,12 @@ Kriteria 2 : API dapat menampilkan seluruh buku
             }
         }    
       
- Kriteria 3 : API dapat menampilkan detail buku      
-    # API yang Anda buat harus dapat menampilkan seluruh buku yang disimpan melalui route:
+ ##Kriteria 3 : API dapat menampilkan detail buku      
+    1. API yang Anda buat harus dapat menampilkan seluruh buku yang disimpan melalui route:
         Method : GET
         URL: /books/{bookId}
         
-    # Bila buku dengan id yang dilampirkan oleh client tidak ditemukan, maka server harus mengembalikan respons dengan:
+    2. Bila buku dengan id yang dilampirkan oleh client tidak ditemukan, maka server harus mengembalikan respons dengan:
         Status Code : 404
         Response Body:
 
@@ -127,7 +127,7 @@ Kriteria 2 : API dapat menampilkan seluruh buku
             "message": "Buku tidak ditemukan"
         }
         
-    # Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan:
+    3. Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan:
         Status Code : 200
         Response Body:
 
@@ -151,11 +151,11 @@ Kriteria 2 : API dapat menampilkan seluruh buku
               }
           }    
           
- Kriteria 4 : API dapat mengubah data buku
-    # API yang dibuat harus dapat mengubah data buku berdasarkan "id" melalui route: 
-      Method : PUT
-      URL : /books/{bookId}
-      Body Request:
+ ##Kriteria 4 : API dapat mengubah data buku
+    1. API yang dibuat harus dapat mengubah data buku berdasarkan "id" melalui route: 
+        Method : PUT
+        URL : /books/{bookId}
+        Body Request:
 
               {
                   "name": string,
@@ -167,9 +167,9 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                   "readPage": number,
                   "reading": boolean
               }
-    # Server harus merespons gagal bila:
+    2. Server harus merespons gagal bila:
 
-      1. Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
+      a. Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
           Status Code : 400
           Response Body:
 
@@ -178,7 +178,7 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                       "message": "Gagal memperbarui buku. Mohon isi nama buku"
                   }
                   
-      2. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
+      b. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
           Status Code : 400
           Response Body:
 
@@ -186,7 +186,7 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                       "status": "fail",
                       "message": "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount"
                   }
-      3. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan:
+      c. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan:
           Status Code : 404
           Response Body:
 
@@ -194,7 +194,7 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                       "status": "fail",
                       "message": "Gagal memperbarui buku. Id tidak ditemukan"
                   }
-    # Bila buku berhasil diperbarui, server harus mengembalikan respons dengan:
+    3. Bila buku berhasil diperbarui, server harus mengembalikan respons dengan:
 
         Status Code : 200
         Response Body:
@@ -204,33 +204,33 @@ Kriteria 2 : API dapat menampilkan seluruh buku
                     "message": "Buku berhasil diperbarui"
                 }
                 
-  Kriteria 5 : API dapat menghapus buku
-    # API yang Anda buat harus dapat menghapus buku berdasarkan id melalui route berikut:
+  ##Kriteria 5 : API dapat menghapus buku
+    1. API yang Anda buat harus dapat menghapus buku berdasarkan id melalui route berikut:
 
-      Method : DELETE
-      URL: /books/{bookId}
+        Method : DELETE
+        URL: /books/{bookId}
       
-    # Bila id yang dilampirkan tidak dimiliki oleh buku manapun, maka server harus mengembalikan respons berikut:
+    2. Bila id yang dilampirkan tidak dimiliki oleh buku manapun, maka server harus mengembalikan respons berikut:
 
-      Status Code : 404
-      Response Body:
+        Status Code : 404
+        Response Body:
 
-              {
-                  "status": "fail",
-                  "message": "Buku gagal dihapus. Id tidak ditemukan"
-              }
-    # Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut:
+                {
+                    "status": "fail",
+                    "message": "Buku gagal dihapus. Id tidak ditemukan"
+                }
+    3. Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut:
 
-      Status Code : 200
-      Response Body:
+        Status Code : 200
+        Response Body:
 
-              {
-                  "status": "success",
-                  "message": "Buku berhasil dihapus"
-              }
+                {
+                    "status": "success",
+                    "message": "Buku berhasil dihapus"
+                }
               
-  Kriteria 6 :  melalui fitur query parameter pada route GET /books 
-    # melalui fitur query parameters ini, maka pada route GET /books dapat menampilkan seluruh isi buku dengan ketentuan sebagai berikut.
+  ##Kriteria 6 :  melalui fitur query parameter pada route GET /books 
+    1. melalui fitur query parameters ini, maka pada route GET /books dapat menampilkan seluruh isi buku dengan ketentuan sebagai berikut.
         ?name : Tampilkan seluruh buku yang mengandung nama berdasarkan nilai yang diberikan pada query ini. Contoh /books?name=”dicoding”, 
                 maka akan menampilkan daftar buku yang mengandung nama “dicoding” secara non-case sensitive  (tidak peduli besar dan kecil 
                 huruf).
